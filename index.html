@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SAMP PROJECT — игровой SAMP-сервер</title>
+<meta name="description" content="Играй, развивай персонажа и становись частью нашего SAMP-сообщества.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232357f5'/%3E%3Ctext x='32' y='44' font-size='34' font-weight='800' text-anchor='middle' fill='white' font-family='Arial'%3ES%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#dde9f8">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SAMP PROJECT — игровой SAMP-сервер">
+<meta property="og:description" content="Играй, развивай персонажа и становись частью нашего SAMP-сообщества. IP: 188.127.241.74:1105">
+<meta name="twitter:card" content="summary">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Unbounded:wght@300;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="snow" aria-hidden="true"></canvas>
+
+<header class="header" id="header">
+  <div class="bar">
+    <a class="logo" href="#home">SAMP<span>PROJECT</span></a>
+    <nav class="menu" aria-label="Menu">
+      <a href="#home" data-i18n="nav_home">Главная</a>
+      <a href="#rules" data-i18n="nav_rules">Правила</a>
+      <a href="#start" data-i18n="nav_start">Как начать</a>
+      <a href="#donate" data-i18n="nav_donate">Донат</a>
+    </nav>
+    <div class="lang" data-lang></div>
+    <div class="auth" data-auth></div>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="panel">☰</button>
+  </div>
+  <div class="panel" id="panel">
+    <a href="#home" data-i18n="nav_home">Главная</a>
+    <a href="#rules" data-i18n="nav_rules">Правила</a>
+    <a href="#start" data-i18n="nav_start">Как начать</a>
+    <a href="#donate" data-i18n="nav_donate">Донат</a>
+    <div class="lang" data-lang></div>
+    <div class="auth" data-auth></div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <p class="eyebrow">SAMP • ONLINE PROJECT</p>
+      <h1 data-i18n="hero_title">Добро пожаловать<br>в San Andreas</h1>
+      <p class="lead" data-i18n="hero_lead">Играй, развивай персонажа и становись частью нашего SAMP-сообщества.</p>
+      <div class="actions">
+        <button class="btn primary" data-action="register" data-i18n="play">Начать играть</button>
+        <a class="btn ghost" href="#donate" data-i18n="nav_donate">Донат</a>
+      </div>
+    </div>
+
+    <aside class="card server" aria-label="Server">
+      <div class="row">
+        <span class="tag">SERVER #01</span>
+        <span class="pill"><i class="dot"></i>ONLINE</span>
+      </div>
+      <h2>SAMP PROJECT</h2>
+      <p class="label" data-i18n="ip_label">IP-адрес</p>
+      <p class="ip">188.127.241.74:1105</p>
+      <button class="btn primary wide" data-action="copy" data-i18n="copy_ip">📋 Скопировать IP</button>
+      <p class="avail" data-status><i class="dot"></i><span>Сервер доступен</span></p>
+    </aside>
+  </section>
+
+  <section id="rules">
+    <p class="eyebrow" data-i18n="rules_eyebrow">ПРАВИЛА</p>
+    <h2 class="title" data-i18n="rules_title">Играй честно</h2>
+    <div class="grid four" id="rulesGrid"></div>
+    <div class="center"><button class="btn ghost" data-action="rules" data-i18n="rules_all">Открыть все правила</button></div>
+  </section>
+
+  <section id="start">
+    <p class="eyebrow" data-i18n="start_eyebrow">КАК НАЧАТЬ</p>
+    <h2 class="title" data-i18n="start_title">Три шага до игры</h2>
+    <ol class="grid three steps">
+      <li class="card reveal"><b>1</b><h3 data-i18n="s1_t">Создай аккаунт</h3><p data-i18n="s1_d">Регистрация занимает меньше минуты.</p></li>
+      <li class="card reveal"><b>2</b><h3 data-i18n="s2_t">Установи SAMP</h3><p data-i18n="s2_d">Скачай SAMP Launcher Unity в Google Play и установи на телефон.</p><button class="btn ghost sm" data-action="download" data-i18n="download">Скачать в Google Play</button></li>
+      <li class="card reveal"><b>3</b><h3 data-i18n="s3_t">Подключись по IP</h3><p data-i18n="s3_d">Открой SAMP, добавь сервер и вставь IP.</p><button class="btn ghost sm" data-action="copy" data-i18n="copy_ip">📋 Скопировать IP</button></li>
+    </ol>
+    <div class="center"><button class="btn primary" data-action="register" data-i18n="create_acc">Создать аккаунт</button></div>
+  </section>
+
+  <section id="video" hidden>
+    <p class="eyebrow" data-i18n="video_eyebrow">ВИДЕО</p>
+    <h2 class="title" data-i18n="video_title">Как подключиться</h2>
+    <div class="card video reveal" id="videoBox"></div>
+  </section>
+
+  <section id="donate">
+    <div class="card donate reveal">
+      <p class="eyebrow" data-i18n="donate_eyebrow">ПОДДЕРЖКА ПРОЕКТА</p>
+      <h2 class="title" data-i18n="nav_donate">Донат</h2>
+      <p class="lead" data-i18n="donate_lead">Поддержи проект и помоги развивать сервер.</p>
+      <button class="btn primary" data-action="donate" data-i18n="donate_go">Перейти к донату</button>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <b>SAMP PROJECT</b>
+  <span>© 2026 SAMP Project</span>
+  <div class="social" id="social"></div>
+</footer>
+
+<div class="overlay" id="overlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mt">
+    <button class="close" data-action="close" aria-label="×">×</button>
+    <div id="mbody"></div>
+  </div>
+</div>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
